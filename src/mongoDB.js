@@ -21,6 +21,5 @@ module.exports = {
         }
     );
   },
-
   getDb: () => dbConnection 
 };
