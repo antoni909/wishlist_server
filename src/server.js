@@ -2,19 +2,16 @@
 const fetch = require("node-fetch")
 const cors = require('cors')
 const express = require("express");
-const bodyParser = require("body-parser")
 const app = express();
 const { getDb } = require("./mongoDB");
 const { ObjectId } = require("mongodb");
 const baseURL = process.env.UNSPLASH_BASE_URL
 
-// APP MW
+// 
 app.use(cors());
-app.use( bodyParser.json() ) // used by server to accept JSON data
-app.use( bodyParser.urlencoded({ extended:true }))// urlencoded - extracts data from form el's and adds them to req.body
+app.use( express.json() ) 
+app.use( express.urlencoded({ extended:true }))
 
-// ROUTES / CONTROLLERS
-// Sanity check
 app.get('/', (req, res) => {
     res.send("server is gtg")
 })
@@ -29,7 +26,6 @@ app.get('/unsplash/:query', (req, res) => {
         })
         .catch( err => console.log(err) )
 })
-// List All Destinations
 app.get("/destinations", (req, res) => {
     const conn = getDb()
     conn
@@ -41,7 +37,6 @@ app.get("/destinations", (req, res) => {
         })
         .catch( err => console.log(err) )
 });
-// List One
 app.get("/destinations/:id", (req, res) => {
     const conn = getDb()
     const { id } = req.params
@@ -54,7 +49,6 @@ app.get("/destinations/:id", (req, res) => {
         })
         .catch( err => console.log(err) )
 });
-// Create New Destinations
 app.post("/destinations", (req,res) => {
     const conn = getDb()
     let { destination, location, url, description } = req.body
@@ -72,7 +66,6 @@ app.post("/destinations", (req,res) => {
         })
         .catch( err => console.log(err) )
 })
-// Update Existing Destination
 app.put("/destinations/", (req, res) => {
     const conn = getDb()
     const filter = { "_id" : ObjectId(req.body._id) }
@@ -86,7 +79,7 @@ app.put("/destinations/", (req, res) => {
         } 
     }
     
-    conn``
+    conn
        .collection("destinations")
        .updateOne(filter, updateDoc, options)
        .then( result => {
@@ -101,7 +94,6 @@ app.put("/destinations/", (req, res) => {
        })
 
 })
-// Delete One Destination
 app.delete("/destinations/:id", (req,res) => {
     const conn = getDb()
     let { id } = req.params
@@ -115,12 +107,10 @@ app.delete("/destinations/:id", (req,res) => {
        .catch( err => console.log(err) )
 })
 
-// ERR Handlers
-
 module.exports = {
     app:app,
     start: port => {
         if( !port ) throw new Error("ERR: no port detected");
-        app.listen( port, () => console.log( `server listening port: ${port}` ))
+        app.listen( port, () => console.log( `server listening port: ${ port }` ))
     }
 }
