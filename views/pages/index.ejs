@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">   
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WishList APP</title>
+        <link rel="stylesheet" href="/public/css/main.css">
+    </head>
+    
+    <body>
+            <header class="header">
+                <h1 class="main-heading">Vacation Destinations WishList</h1>
+                <p class="main-description">
+                    Found exciting places to visit on your next vacation? Use the form below to add them to your wishlist
+                </p>
+            </header>
+            <main>
+                <div class="main-container">
+                    <div class="container main-item">
+                        <div class="item fixed-item">
+                            <form name="vacationform" id="vacation-form">   
+                                <label for="destination-inp">Destination name</label>
+                                <input 
+                                    type="text" 
+                                    minlength="2"
+                                    required
+                                    id="destination-inp" 
+                                    name="destination" 
+                                    placeholder="Enter the name of the destination"
+                                >
+                                
+                                <label for="location-inp">Location</label>
+                                <input 
+                                    type="text" 
+                                    minlength="2"
+                                    required
+                                    id="locaton-inp" 
+                                    name="location" 
+                                    placeholder="Where is it located?"
+                                />
+                                <label for="description-inp">Description</label>
+                                <textarea
+                                    type="text" 
+                                    id="description-inp" 
+                                    name="description"
+                                    placeholder="Where is it located?"
+                                ></textarea>
+                                <!-- will not render validation error -->
+                                <input 
+                                    type="submit" 
+                                    class="button button-inp" 
+                                    value="Add to List"
+                                    id="list-btn"
+                                />
+                            </form>
+                        </div>
+                        <div class="item">
+                            <h2 id="title-banner" class="h2-title-banner">Enter destination details</h2>
+                            <div id="div-wishlist" class="wishlist-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            </div>
+
+        <%- include('../partials/footer.ejs') %>
+    </body>
+    
+</html>
