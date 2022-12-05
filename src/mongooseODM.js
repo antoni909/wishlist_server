@@ -11,8 +11,8 @@ module.exports = {
         })
         .then( () => {
             console.log("connected to mongoDB ")
-            start(PORT)
-        })
+            start( PORT )
+        })  
         .catch( (err) => {
             console.log("ERR: ", err)
         })

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">   
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WishList APP</title>
+        <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    </head>
+    
+    <body>
+            <header class="header">
+                <h1 class="main-heading">Vacation Destinations WishList</h1>
+                <p class="main-description">
+                    Found exciting places to visit on your next vacation? Use the form below to add them to your wishlist
+                </p>
+            </header>
+            <main>
+                <div class="main-container">
+                    <div class="container main-item">
+                        <div class="item fixed-item">
+                            <form 
+                                name="vacationform" 
+                                id="vacation-form" 
+                                action="http://localhost:4000/destinations"
+                                method="post"
+                            >   
+                                
+                                <label for="destination-inp">Destination name</label>
+                                <input 
+                                    type="text" 
+                                    minlength="2"
+                                    required
+                                    id="destination-inp" 
+                                    name="destination" 
+                                    placeholder="Enter the name of the destination"
+                                >
+                                
+                                <label for="location-inp">Location</label>
+                                <input 
+                                    type="text" 
+                                    minlength="2"
+                                    required
+                                    id="locaton-inp" 
+                                    name="location" 
+                                    placeholder="Where is it located?"
+                                />
+
+                                <label for="description-inp">Description</label>
+                                <textarea
+                                    type="text" 
+                                    id="description-inp" 
+                                    name="description"
+                                    placeholder="Where is it located?"
+                                ></textarea>
+
+                                <input 
+                                    type="submit" 
+                                    class="button button-inp" 
+                                    value="Add to List"
+                                    id="list-btn"
+                                />
+
+                            </form>
+                        </div>
+                        
+                        <div class="item">
+                            <h2 id="title-banner" class="h2-title-banner">Enter destination details</h2>
+                                <!-- toggle title -->
+
+                                <div id="div-wishlist" class="wishlist-container">
+                                    <% destinations.forEach( dest =>{{%>
+                                        <div id=<%=dest._id.valueOf()%> class="new-card card-item">
+                                            <img src=<%=dest.url%> alt=<%=dest.destination%>>
+                                            <h3 class="dest-header"><%= dest.destination%></h3>
+                                            <h4 class="loc-header"><%= dest.location%></h4>
+                                            <p class="desc-header"><%= dest.description%></p>
+                                            <button id="edit-btn" class="button-edit button">Edit</button>
+                                            <button id="delete-btn" class="button-rm button">Remove</button>                                        
+                                        </div>    
+                                    <% }}) %>
+                                </div>
+                                
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+            </div>
+        <!-- <%- include('../partials/footer.ejs') %> -->
+        <script src="/js/index.js"></script>
+    </body>
+    
+</html>

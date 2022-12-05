@@ -1,4 +1,5 @@
 "use strict";
+
 const { mongoose, Schema } = require("mongoose");
 
 const destinationSchema = new Schema({
