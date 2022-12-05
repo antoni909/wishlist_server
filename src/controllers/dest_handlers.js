@@ -5,10 +5,7 @@ const { Destination } = require("../schema/destination_schema")
 const fetch = require("node-fetch")
 const unsplashURL = process.env.UNSPLASH_BASE_URL
 
-const SERVER_URL = (process.env.NODE_ENV === "production")
-    ? process.env.HEROKU_SERVER_URL 
-    : process.env.LOCAL_SERVER_URL;
-
+const SERVER_URL = (process.env.NODE_ENV === "production")? process.env.HEROKU_SERVER_URL : process.env.LOCAL_SERVER_URL;
 const  getUnsplashImgURL = async ( query ) => {
     return fetch(`${ unsplashURL }/search/photos?client_id=${ process.env.UNSPLASH_ACCESS_KEY }&page=1&per_page=1&query=${ query }}`)
         .then( response => response.json() )
