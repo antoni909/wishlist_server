@@ -1,4 +1,11 @@
-# WishList Server
+# WishList Server 
+
+An Node Express.js Server Side Rendering Application
+
+## Techonologies
+
+Templating Engine: EJS
+Authentication: Auth0
 
 ## Resources Used
 - [express docs](https://expressjs.com/en/4x/api.html#express.urlencoded)
