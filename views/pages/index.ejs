@@ -23,7 +23,7 @@
                             <form 
                                 name="vacationform" 
                                 id="vacation-form" 
-                                action="http://localhost:4000/destinations"
+                                action=<%=server_url+"/destinations"%>
                                 method="post"
                             >   
                                 
@@ -89,7 +89,7 @@
             </main>
             </div>
         <!-- <%- include('../partials/footer.ejs') %> -->
-        <script src="/js/index.js"></script>
+        <script src="/js/index.js" type="module"></script>
     </body>
     
 </html>

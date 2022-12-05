@@ -1,5 +1,5 @@
 "use strict";
-const { start } = require("./server")
+const { start } = require("../server")
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4001
 const connectionString = process.env.ATLAS_URI_MONGOOSE
