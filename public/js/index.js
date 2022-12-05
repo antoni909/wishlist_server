@@ -1,6 +1,6 @@
 'use strict';
 
-const SERVER_URL =  "http://localhost:4000" || "https://wishlist-server.herokuapp.com"
+const SERVER_URL =  "https://wishlist-server.herokuapp.com"
 const div_wishlist = document.querySelector('.wishlist-container');
 const listOfEditButtons = document.querySelectorAll('.button-edit')
 const listOfDeleteButtons = document.querySelectorAll('.button-rm')
