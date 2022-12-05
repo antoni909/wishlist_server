@@ -16,6 +16,4 @@ function one_unsplashImageURL(req,res){
         .catch( err => console.log(err) )
 }
 
-
-
 module.exports = router

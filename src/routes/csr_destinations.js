@@ -6,7 +6,6 @@ const { ObjectId } = require("mongodb");
 const { Destination } = require("../schema/destination_schema")
 const router = express.Router();
 
-// Mongoose CSR
 router.get("/csr/", (req,res)=> { 
     const msg = " availabel routes: GET/destination"
     res.send( msg ) 

@@ -1,6 +1,6 @@
 'use strict';
 
-const serverURL = `http://localhost:4000`
+const SERVER_URL =  "http://localhost:4000" || "https://wishlist-server.herokuapp.com"
 const div_wishlist = document.querySelector('.wishlist-container');
 const listOfEditButtons = document.querySelectorAll('.button-edit')
 const listOfDeleteButtons = document.querySelectorAll('.button-rm')
@@ -18,7 +18,7 @@ const appendListenersToEditButtons = ( list ) => {
                 location: updatedLocation,
                 description: updatedDescription,
             }
-            fetch(`${serverURL}/destination/${id}`, {
+            fetch(`${SERVER_URL}/destination/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(document)
@@ -35,7 +35,7 @@ const appendListenersToDeleteButtons = ( list ) => {
         buttonElement.addEventListener("click", (e)=> {
             e.preventDefault();
             const id = e.currentTarget.parentElement.getAttribute("id")
-            fetch(`${serverURL}/destination/${id}`,{
+            fetch(`${SERVER_URL}/destination/${id}`,{
                 method: 'delete',
                 headers: { 'Content-Type': 'application/json' },
             })
